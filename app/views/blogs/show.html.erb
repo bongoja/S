@@ -1,5 +1,8 @@
 <div class="container-fluid mt-3">
-  <h1>Category: <%= @blog.category.category %></h1>
+  <h1>Categories:</h1>
+  <% @blog.categories.each do |category| %>
+  <h2><%= category.category %></h2>
+  <% end %>
   <h3><%= @blog.title %></h3>
 
   <p><%= @blog.content %></p>
