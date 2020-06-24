@@ -18,7 +18,9 @@
       </div>
       <div class="form-group">
 
-      <%= f.select :category_ids, Category.all.map {|c| [c.category, c.id]} %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :category do |cb| %>
+        <%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
     </div>
 
       <%= f.submit "Create Blog Post", class: 'btn btn-outline-primary'%>
