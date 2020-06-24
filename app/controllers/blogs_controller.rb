@@ -5,11 +5,11 @@ class BlogsController < ApplicationController
     cate = params[:cate]
 
     if !cate.nil?
-      @blogs = Blog.where(:category_id => cate)
+      @blogs = Category.find(params[:cate]).blogs
     else
       @blogs = Blog.all
     end
-  
+
   end
 
   def show
@@ -53,6 +53,6 @@ end
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content, :category_id)
+    params.require(:blog).permit(:title, :content)
   end
 end
